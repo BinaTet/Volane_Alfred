@@ -156,12 +156,3 @@ Follow the [LambdaTest Jenkins-Cypress tutorial](https://www.lambdatest.com/blog
 - **Solution**: Ensure NodeJS plugin is configured, or manually set Node.js version in Jenkins.
 
 ---
-
-### Conclusion
-
-This documentation provides a complete overview of the GitHub automated login project, from setup to Jenkins CI/CD integration. Follow these instructions to ensure a maintainable and secure automation project, with continuous integration enabled through Jenkins.
-
----
-
-By following this setup, you can efficiently automate login flows, secure sensitive data, and use CI/CD best practices for continuous testing and integration.
-```
