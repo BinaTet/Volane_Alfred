@@ -1,0 +1,104 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-11-07T01:10:41.070Z",
+    "end": "2024-11-07T01:10:48.148Z",
+    "duration": 7078,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "2bc96ee0-282f-4c19-a3cf-0a620a1970c7",
+      "title": "",
+      "fullFile": "cypress\\e2e\\githubTests.cy.js",
+      "file": "cypress\\e2e\\githubTests.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "c9f84fa1-de2f-4c2e-b8cb-502a7b3c5372",
+          "title": "Automated Login Github Process",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Happy Path : Valid Login Credentials",
+              "fullTitle": "Automated Login Github Process Happy Path : Valid Login Credentials",
+              "timedOut": null,
+              "duration": 7007,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "(0, _githubLoginPage.enterEmailAddress)();\n(0, _githubLoginPage.enterPassword)();\n(0, _githubLoginPage.clickSigninButton)();\n(0, _githubLoginPage.verifyGitHubDashboard)();",
+              "err": {},
+              "uuid": "cea851b6-1ff0-41ee-bf67-7eb9a5b222de",
+              "parentUUID": "c9f84fa1-de2f-4c2e-b8cb-502a7b3c5372",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "cea851b6-1ff0-41ee-bf67-7eb9a5b222de"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 7007,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "index",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/results",
+        "reportFilename": "index",
+        "overwrite": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
