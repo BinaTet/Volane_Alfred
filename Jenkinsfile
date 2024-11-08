@@ -1,45 +1,37 @@
-pipeline {
-    agent any
+pipeline{
+    agent any 
 
-    environment {
-        // Setting Node.js installation
-        NODE_HOME = tool name: 'NodeJS', type: 'NodeJSInstallation'
-        PATH = "${NODE_HOME}/bin:${env.PATH}"
+    parameters{
+
+        string(name: 'SPEC', defaultValue: "cypress/e2e/**", description:"Enter the script path to execute" )
+        choice(name: 'BROSWER', choices: ['chrome', 'edge','firefox'], description: "Choose the browser to run test on")
     }
 
-    stages {
-        stage('Checkout Code') {
-            steps {
-                // Pull latest code from GitHub repo
-                git branch: 'main', url: 'https://github.com/BinaTet/Volane_Alfred.git'
-            }
+    options {
+        ansiColor('xterm')
+    }
+
+    stages{
+        stage ('Deploying'){
+            echo "Building the application"
         }
 
-        stage('Install Dependencies') {
+        stage ('Testing'){
             steps {
-                // Install project dependencies (including Cypress)
-                sh 'npm install'
+                bat "npm i"
+                bat "npx cypress run --browser ${BROWSER} --SPEC ${SPEC}"
             }
         }
-
-        stage('Run Cypress Tests') {
-            steps {
-                // Run Cypress tests
-                sh 'npx cypress run --reporter mochawesome --reporter-options reportDir=cypress/results,reportFilename=index,overwrite=true'
-            }
-        }
-
-        stage('Publish HTML Report') {
-            steps {
-                // Publishing Cypress HTML report
-                archiveArtifacts artifacts: 'cypress/results/*.html', allowEmptyArchive: true
-            }
+        stage ('Deploying the build'){
+            echo "Deploy the applicatioon"
         }
     }
 
-    post {
-        always {
-            echo 'Build completed. Cleaning up...'
+    post{
+        always{
+           publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true, reportDir: '', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
         }
+
     }
+
 }
