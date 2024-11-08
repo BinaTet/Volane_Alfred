@@ -6,10 +6,6 @@ pipeline {
         choice(name: 'BROWSER', choices: ['chrome', 'edge', 'firefox'], description: "Choose the browser to run test on")
     }
 
-    options {
-        ansiColor('xterm') // Only if ansiColor is installed and configured
-    }
-
     stages {
         stage('Deploying') {
             steps {
