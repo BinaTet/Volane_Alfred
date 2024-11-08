@@ -39,7 +39,7 @@ pipeline {
 
     post {
         always {
-            // Clean up or notify after build completion
+            echo 'Build completed. Cleaning up...'
         }
     }
 }
