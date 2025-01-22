@@ -15,7 +15,7 @@ describe('Automated Login Github Process', () => {
     cy.visit('/login')
   })
 
-  it.only('Happy Path : Valid Login Credentials', () => {
+  it('Happy Path : Valid Login Credentials', () => {
 
     enterEmailAddress()
     enterPassword()
