@@ -10,7 +10,6 @@ This project automates the login process on GitHub using Cypress, covering succe
 4. [Implementation Details](#implementation-details)
 5. [Running the Tests Locally](#running-the-tests-locally)
 6. [Jenkins Setup and CI/CD Integration](#jenkins-setup-and-cicd-integration)
-7. [Troubleshooting and Common Issues](#troubleshooting-and-common-issues)
 
 ---
 
@@ -125,34 +124,17 @@ Follow the [LambdaTest Jenkins-Cypress tutorial](https://www.lambdatest.com/blog
    - Install **Cypress** if not already available.
 
 2. **Create Jenkins Pipeline Job**:
-   - Go to Jenkins dashboard and create a new Pipeline project.
+   - Go to the Jenkins dashboard and create a new Pipeline project.
    - Add the GitHub repository URL under the **Source Code Management** section.
 
 3. **Define the Jenkinsfile**:
    The `Jenkinsfile` in the root directory defines the pipeline stages:
    - **Install Dependencies**: Installs project dependencies with `npm install`.
    - **Run Tests**: Executes the Cypress tests.
-   - **Post-Execution**: Configures post-build steps (like notifications or result archiving).
+   - **Post-Execution**: Configures post-build (Archiving and Creating HTML reports)
 
-4. **Set Environment Variables in Jenkins**:
-   - In Jenkins job configuration, add environment variables `GITHUB_EMAIL` and `GITHUB_PASSWORD`.
-   - Alternatively, use **Credentials Plugin** for secure storage of sensitive data.
-
-5. **Run the Pipeline**:
-   - Save configuration and click **Build Now** to run the tests.
+4. **Run the Pipeline**:
+   - Save the configuration and click **Build Now** to run the tests.
    - View test results and console output to verify login flows.
-
----
-
-### 7. Troubleshooting and Common Issues
-
-#### Issue: `cy.type() can only accept a string or number`
-- **Solution**: Verify `.env` is correctly set and variables are accessible.
-
-#### Issue: Environment Variables Not Loaded in Jenkins
-- **Solution**: Check environment variables configuration in Jenkins and ensure `.env` setup is correct.
-
-#### Issue: Jenkins Pipeline Fails on `npm install`
-- **Solution**: Ensure NodeJS plugin is configured, or manually set Node.js version in Jenkins.
 
 ---
